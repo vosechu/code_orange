@@ -5,3 +5,22 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+['Chuck', 'Chappy', 'Dawniris', 'Ryan', 'Daniel'].each do |name|
+  User.create(name: name)
+end
+
+i1 = Issue.create(jira_id: 7402, name: 'Some task', deploy_at: Time.zone.now)
+i2 = Issue.create(jira_id: 7116, name: 'Some task', deploy_at: Time.zone.now)
+
+s1 = i1.sections.create(name: 'QA', start_at: 3.days.ago, end_at: Time.zone.now)
+s2 = i1.sections.create(name: 'RC', start_at: 1.days.ago, end_at: Time.zone.now)
+s3 = i1.sections.create(name: 'Dev', start_at: 8.days.ago, end_at: 3.days.ago)
+s4 = i1.sections.create(name: 'CR', start_at: 3.days.ago, end_at: 1.day.ago)
+s5 = i1.sections.create(name: 'PO', start_at: 3.days.ago, end_at: 1.day.ago)
+
+s1.assignments.create(user: User.where(name: 'Dawniris').first)
+s2.assignments.create(user: User.where(name: 'Ryan').first)
+s3.assignments.create(user: User.where(name: 'Chappy').first)
+s4.assignments.create(user: User.where(name: 'Chuck').first)
+s5.assignments.create(user: User.where(name: 'Daniel').first)
