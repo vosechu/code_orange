@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :find_model
 
   def index
-    render json: User.all
+
   end
 
   private

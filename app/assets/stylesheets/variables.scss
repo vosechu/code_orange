@@ -1,0 +1,19 @@
+$infobit-width: 300px;
+$cell-height: 3.7em;
+$cell-width: 2em;
+
+// Colors
+
+$text-color: #2F2933;
+$cell-border: lighten(#2F2933, 30%);
+$stripe-even: #fff;
+$stripe-odd: #fff;
+$weekend: lighten($cell-border, 35%);
+$dev: #01A2A6;
+$review: #29D9C2;
+$rc: #BDF271;
+$holiday: #fff;
+
+// Candidate colors: https://color.adobe.com/Friends-and-foes-color-theme-1273498/
+// https://color.adobe.com/Pear-Lemon-Fizz-color-theme-1833017/
+// https://color.adobe.com/Faded-Rainbow-color-theme-3404174/
