@@ -13,4 +13,17 @@
 
 class Issue < ActiveRecord::Base
   has_many :sections
+
+  def sections_for_date(date)
+    sections.select { |section| section.present_on_date?(date) }.map(&:name).join(' ')
+  end
+
+  def assignees
+    users = sections.map do |section|
+      section.assignments.map do |assignment|
+        assignment.user
+      end
+    end
+    users.flatten.uniq.sort
+  end
 end

@@ -17,4 +17,8 @@ class Section < ActiveRecord::Base
   belongs_to :issue
 
   has_many :assignments
+
+  def present_on_date?(date)
+    date.between?(start_at, end_at)
+  end
 end
