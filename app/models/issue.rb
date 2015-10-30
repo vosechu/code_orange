@@ -15,6 +15,7 @@ class Issue < ActiveRecord::Base
   has_many :sections
 
   def sections_for_date(date)
+    Date.parse(date) if date.is_a? String
     sections.select { |section| section.present_on_date?(date) }.map(&:name).join(' ')
   end
 
