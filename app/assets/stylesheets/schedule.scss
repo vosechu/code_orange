@@ -113,6 +113,9 @@ body {
 .btn {
   background-color: lighten($cell-border, 35%);
 }
+.day.highlight {
+  background-color: $highlight;
+}
 
 // Header layout
 

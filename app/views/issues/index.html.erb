@@ -41,9 +41,13 @@
     <div class="clearfix"></div>
   </div>
   <% end %>
-  <div class="story new-story omega">
+  <div class="story new-story <%= @issues.count % 2 == 0 ? 'odd' : 'even' %> omega">
     <div class="infobit">
-      <button class="btn new">New story</button>
+      <%= simple_form_for :issue do |f| %>
+        <%= f.input :jira_id, placeholder: 'Jira ID', label: false %>
+        <%= f.input :name, placeholder: 'Description', label: false %>
+        <%= f.button :submit, "Select dates",  class: 'btn new' %>
+      <% end %>
     </div>
     <% @num_weeks.times do |week_index| %>
     <div class="week">
