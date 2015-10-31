@@ -1,6 +1,7 @@
 $infobit-width: 300px;
-$cell-height: 3.7em;
-$cell-width: 2em;
+$cell-height: 48px;
+$cell-width: 13px;
+$week-width: $cell-width*7 + 1px;
 
 // Colors
 
