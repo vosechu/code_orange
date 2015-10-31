@@ -4,27 +4,23 @@
 #
 #  id                     :integer          not null, primary key
 #  jira_id                :string
-#  name                   :string
+#  nickname               :string
 #  communicated_deploy_at :datetime
 #  deploy_at              :datetime
+#  completed_at           :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
 
 class Issue < ActiveRecord::Base
-  has_many :sections
+  has_many :subtasks
 
-  def sections_for_date(date)
-    Date.parse(date) if date.is_a? String
-    sections.select { |section| section.present_on_date?(date) }.map(&:name).join(' ')
-  end
+  # def sections_for_date(date)
+  #   Date.parse(date) if date.is_a? String
+  #   sections.select { |section| section.present_on_date?(date) }.map(&:name).join(' ')
+  # end
 
   def assignees
-    users = sections.map do |section|
-      section.assignments.map do |assignment|
-        assignment.user
-      end
-    end
-    users.flatten.uniq.sort
+    subtasks.map(&:users).flatten.compact.uniq.sort
   end
 end

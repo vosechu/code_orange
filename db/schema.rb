@@ -13,37 +13,41 @@
 
 ActiveRecord::Schema.define(version: 20150930045348) do
 
-  create_table "assignments", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "section_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "assignments", ["section_id"], name: "index_assignments_on_section_id"
-  add_index "assignments", ["user_id"], name: "index_assignments_on_user_id"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "issues", force: :cascade do |t|
     t.string   "jira_id"
-    t.string   "name"
+    t.string   "nickname"
     t.datetime "communicated_deploy_at"
     t.datetime "deploy_at"
+    t.datetime "completed_at"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
-  create_table "sections", force: :cascade do |t|
+  create_table "subtasks", force: :cascade do |t|
     t.integer  "issue_id"
     t.string   "name"
-    t.datetime "start_at"
-    t.datetime "end_at"
-    t.datetime "original_start_at"
-    t.datetime "original_end_at"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "dev_start_at"
+    t.datetime "dev_complete_at"
+    t.datetime "review_start_at"
+    t.datetime "review_complete_at"
+    t.datetime "rc_start_at"
+    t.datetime "rc_complete_at"
+    t.integer  "dev_owner_id"
+    t.integer  "qa_owner_id"
+    t.integer  "cr_owner_id"
+    t.integer  "po_owner_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
-  add_index "sections", ["issue_id"], name: "index_sections_on_issue_id"
+  add_index "subtasks", ["cr_owner_id"], name: "index_subtasks_on_cr_owner_id", using: :btree
+  add_index "subtasks", ["dev_owner_id"], name: "index_subtasks_on_dev_owner_id", using: :btree
+  add_index "subtasks", ["issue_id"], name: "index_subtasks_on_issue_id", using: :btree
+  add_index "subtasks", ["po_owner_id"], name: "index_subtasks_on_po_owner_id", using: :btree
+  add_index "subtasks", ["qa_owner_id"], name: "index_subtasks_on_qa_owner_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -51,4 +55,5 @@ ActiveRecord::Schema.define(version: 20150930045348) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "subtasks", "issues"
 end
