@@ -169,8 +169,19 @@ Issue.create(jira_id: 7594, nickname: "Confidence score", deploy_at: Date.parse(
 end
 
 Issue.create(jira_id: 7611, nickname: "Transunion", deploy_at: Date.parse("2015-12-09")) do |issue|
-  issue.subtasks.new(name: "Lenny/Mandolin",
+  issue.subtasks.new(name: "Mandolin",
     dev_start_at: Date.parse("2015-11-05"),
+    dev_complete_at: Date.parse("2015-11-25"),
+    review_start_at: Date.parse("2015-11-30"),
+    review_complete_at: Date.parse("2015-12-04"),
+    rc_start_at: Date.parse("2015-12-07"),
+    rc_complete_at: Date.parse("2015-12-09"),
+    dev_owner: User.where(name: "Dustin").first,
+    qa_owner: User.where(name: "Vinch").first,
+    po_owner: User.where(name: "Daniel").first
+  )
+  issue.subtasks.new(name: "Lenny",
+    dev_start_at: Date.parse("2015-11-30"),
     dev_complete_at: Date.parse("2015-12-02"),
     review_start_at: Date.parse("2015-12-03"),
     review_complete_at: Date.parse("2015-12-04"),

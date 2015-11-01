@@ -39,6 +39,7 @@ html {
       width: $infobit-width;
       background-color: white;
       border-right: 1px solid $cell-border;
+      height: 100%;
 
       h1 {
         margin: 0;
@@ -65,7 +66,7 @@ html {
         .subtask {
           height: $subtask-cell-height;
           width: 100%;
-          border-bottom: 1px solid lighten($cell-border, 40);
+          border-bottom: 1px solid white;
         }
       }
     }
@@ -78,7 +79,6 @@ html {
   padding: 1px;
 
   &.week {
-    padding: 0 5px;
     z-index: -1;
     border-right: 1px solid $cell-border;
     background-color: transparent;
