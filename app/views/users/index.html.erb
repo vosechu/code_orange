@@ -1,0 +1,81 @@
+<div class="storyline-container">
+  <div class="storyline storyline-header">
+    <div class="infobit">
+      <label id="hide-weekends">
+        Hide Weekends
+        <input type="checkbox"></input>
+      </label>
+    </div>
+    <div class="subtasks-container">
+      <div class="subtasks">
+        <% @num_weeks.times do |week_index| %>
+        <% monday = Date.today.beginning_of_week + 7*week_index %>
+        <div class="section week offset-day-<%= week_index * 7 %> width-7">
+          <%= monday.strftime('%b %e') %> - <br><%= (monday + 4.days).strftime('%b %e') %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <% @issues.each_with_index do |issue, index| %>
+  <div class="storyline <%= index % 2 == 0 ? 'odd' : 'even' %>">
+    <div class="infobit">
+      <div class="metadata">
+        <h1 class="identifier"><a href="https://jira.renewfund.com/browse/<%= issue.jira_id %>"><%= issue.jira_id %></a></h1>
+        <p class="description"><%= issue.nickname %></p>
+      </div>
+      <div class="subtask-infobits">
+        <% issue.subtasks.each do |subtask| %>
+        <div class="subtask subtask-infobit">
+          <%= subtask.name %> -
+          <%= subtask.dev_owner ? subtask.dev_owner.name : '???' %> /
+          <%= subtask.cr_owner ? subtask.cr_owner.name : '???' %>
+        </div>
+        <% end %>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="subtasks-container">
+      <div class="subtasks">
+        <% issue.subtasks.each do |subtask| %>
+        <div class="subtask">
+          <% subtask = SubtaskStorylineDecorator.new(subtask) %>
+          <div class="section dev offset-day-<%= subtask.dev_offset %> width-<%= subtask.dev_width %>">Dev</div>
+          <div class="section review offset-day-<%= subtask.review_offset %> width-<%= subtask.review_width %>">Rev</div>
+          <div class="section rc offset-day-<%= subtask.rc_offset %> width-<%= subtask.rc_width %>">RC</div>
+
+          <div class="section holiday offset-day-31 width-4">Tday</div>
+          <div class="section holiday offset-day-17 width-1">V</div>
+
+          <% @num_weeks.times do |week_index| %>
+          <div class="section week offset-day-<%= week_index * 7 %> width-7">&nbsp;</div>
+          <div class="section weekend offset-day-<%= 5 + week_index * 7 %> width-2">&nbsp;</div>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <% end %>
+<!--   <div class="storyline new-storyline <%= @issues.count % 2 == 0 ? 'odd' : 'even' %> omega">
+    <div class="infobit">
+      <%= simple_form_for :issue do |f| %>
+        <%= f.input :jira_id, placeholder: 'Jira ID', label: false %>
+        <%= f.input :nickname, placeholder: 'Description', label: false %>
+        <%= f.button :submit, "Select dates",  class: 'btn new' %>
+      <% end %>
+    </div>
+    <div class="subtasks-container">
+      <div class="subtasks">
+        <div class="subtask">
+          <% @num_weeks.times do |week_index| %>
+          <div class="section week offset-day-<%= week_index * 7 %> width-7">&nbsp;</div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div> -->
+</div>
