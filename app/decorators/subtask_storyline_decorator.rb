@@ -8,7 +8,11 @@ class SubtaskStorylineDecorator < Decorator
   end
 
   def dev_width
-    (subtask.dev_complete_at.to_date - subtask.dev_start_at.to_date + 1).to_i
+    width = (subtask.dev_complete_at.to_date - subtask.dev_start_at.to_date + 1).to_i
+    if dev_offset < 0
+      width += dev_offset
+    end
+    width
   end
 
   def review_offset

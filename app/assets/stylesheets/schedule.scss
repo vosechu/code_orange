@@ -14,16 +14,12 @@ html {
 // General Layout
 
 .storyline-container {
-  width: 100%;
-  overflow-x: scroll;
+  width: $infobit-width + ($week-width) * 12;
+  margin: 0 auto;
 
   .storyline {
-    width: $infobit-width + ($week-width) * 12;
     border-bottom: 1px solid $cell-border;
 
-    &.odd, &.even {
-      min-height: 70px;
-    }
     &.omega {
       border-bottom: none;
     }
@@ -35,7 +31,6 @@ html {
       min-height: $cell-height - 8px;
     }
     .infobit {
-      position: fixed;
       width: $infobit-width;
       background-color: white;
       border-right: 1px solid $cell-border;
@@ -43,6 +38,7 @@ html {
 
       h1 {
         margin: 0;
+        font-size: 1.8em;
       }
       .metadata, .subtask-infobits {
         float: left;
