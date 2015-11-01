@@ -15,6 +15,9 @@
 class Issue < ActiveRecord::Base
   has_many :subtasks
 
+  default_scope -> { order(:order) }
+  scope :for_storyline, -> { includes(:subtasks => [:dev_owner, :cr_owner]) }
+
   def sections_for_date(date)
     Date.parse(date) if date.is_a? String
 

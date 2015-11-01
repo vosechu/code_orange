@@ -10,6 +10,6 @@ $ ->
     $newStoryRow.on 'mouseleave', '.day', (event) ->
       $(event.target).removeClass('dev').addClass('highlight')
 
-  $hideWeekends = $('.issues.index #hide-weekends')
+  $hideWeekends = $('.index #hide-weekends')
   $hideWeekends.on 'click', (event) ->
     $('.weekend').toggle();

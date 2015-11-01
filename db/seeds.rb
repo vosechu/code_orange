@@ -9,11 +9,13 @@
 %w(Allyn Andrew Ashim Barb Begin Ben CG Chappy Chuck Chris Colin Daniel
    Darrell Davis Dawniris Devin Dustin Groth Hunter Irish Jor Josie Kiisu
    Krishan Krishna Madhu Manju Marc Michael Murthy Nag Nate Nischal
-   Raghu Ravi Ryan Scott Siva Tabitha Todd Vinch Will).each do |name|
+   Raghu Ravi Ryan Scott Shwalbe Siva Tabitha Todd Vinch Will).each do |name|
   User.create(name: name)
 end
 
-Issue.create(jira_id: 7293, nickname: "Second look", deploy_at: Date.parse("2015-12-09")) do |issue|
+User.where(name: 'Madhu').first.update(:order => 1)
+
+Issue.create(jira_id: 7293, nickname: "Second look", deploy_at: Date.parse("2015-12-09"), order: 1) do |issue|
   issue.subtasks.new(name: "Champ",
     dev_start_at: Date.parse("2015-11-02"),
     dev_complete_at: Date.parse("2015-11-25"),
@@ -54,14 +56,14 @@ Issue.create(jira_id: 7293, nickname: "Second look", deploy_at: Date.parse("2015
     review_complete_at: Date.parse("2015-11-20"),
     rc_start_at: Date.parse("2015-12-07"),
     rc_complete_at: Date.parse("2015-12-09"),
-    dev_owner: User.where(name: "Begin").first,
+    dev_owner: User.where(name: "Nate").first,
     qa_owner: User.where(name: "Vinch").first,
     po_owner: User.where(name: "Irish").first
   )
   issue.save
 end
 
-Issue.create(jira_id: 7287, nickname: "Dual eligibility", deploy_at: Date.parse("2015-12-09")) do |issue|
+Issue.create(jira_id: 7287, nickname: "Dual eligibility", deploy_at: Date.parse("2015-12-09"), order: 2) do |issue|
   issue.subtasks.new(name: "Champ",
     dev_start_at: Date.parse("2015-11-09"),
     dev_complete_at: Date.parse("2015-11-25"),
@@ -96,7 +98,7 @@ Issue.create(jira_id: 7287, nickname: "Dual eligibility", deploy_at: Date.parse(
   )
 end
 
-Issue.create(jira_id: 7599, nickname: "Update for cal1st", deploy_at: Date.parse("2015-12-09")) do |issue|
+Issue.create(jira_id: 7599, nickname: "Update for cal1st", deploy_at: Date.parse("2015-12-09"), order: 3) do |issue|
   issue.subtasks.new(name: "Champ",
     dev_start_at: Date.parse("2015-11-02"),
     dev_complete_at: Date.parse("2015-11-25"),
@@ -132,7 +134,7 @@ Issue.create(jira_id: 7599, nickname: "Update for cal1st", deploy_at: Date.parse
   )
 end
 
-Issue.create(jira_id: 7594, nickname: "Confidence score", deploy_at: Date.parse("2015-12-09")) do |issue|
+Issue.create(jira_id: 7594, nickname: "Confidence score", deploy_at: Date.parse("2015-12-09"), order: 4) do |issue|
   issue.subtasks.new(name: "Champ",
     dev_start_at: Date.parse("2015-11-02"),
     dev_complete_at: Date.parse("2015-11-13"),
@@ -140,7 +142,7 @@ Issue.create(jira_id: 7594, nickname: "Confidence score", deploy_at: Date.parse(
     review_complete_at: Date.parse("2015-11-20"),
     rc_start_at: Date.parse("2015-12-07"),
     rc_complete_at: Date.parse("2015-12-09"),
-    dev_owner: User.where(name: "Jor").first,
+    dev_owner: User.where(name: "Schwalbe").first,
     qa_owner: User.where(name: "Vinch").first,
     po_owner: User.where(name: "Daniel").first
   )
@@ -168,7 +170,7 @@ Issue.create(jira_id: 7594, nickname: "Confidence score", deploy_at: Date.parse(
   )
 end
 
-Issue.create(jira_id: 7611, nickname: "Transunion", deploy_at: Date.parse("2015-12-09")) do |issue|
+Issue.create(jira_id: 7611, nickname: "Transunion", deploy_at: Date.parse("2015-12-09"), order: 5) do |issue|
   issue.subtasks.new(name: "Mandolin",
     dev_start_at: Date.parse("2015-11-05"),
     dev_complete_at: Date.parse("2015-11-25"),
@@ -193,7 +195,7 @@ Issue.create(jira_id: 7611, nickname: "Transunion", deploy_at: Date.parse("2015-
   )
 end
 
-Issue.create(jira_id: 7341, nickname: "Payment info", deploy_at: Date.parse("2015-12-09")) do |issue|
+Issue.create(jira_id: 7341, nickname: "Payment info", deploy_at: Date.parse("2015-12-09"), order: 6) do |issue|
   issue.subtasks.new(name: "Holmes/Nemo",
     dev_start_at: Date.parse("2015-11-02"),
     dev_complete_at: Date.parse("2015-11-13"),
@@ -207,7 +209,7 @@ Issue.create(jira_id: 7341, nickname: "Payment info", deploy_at: Date.parse("201
   )
 end
 
-Issue.create(jira_id: 7280, nickname: "Calc payment", deploy_at: Date.parse("2015-12-09")) do |issue|
+Issue.create(jira_id: 7280, nickname: "Calc payment", deploy_at: Date.parse("2015-12-09"), order: 7) do |issue|
   issue.subtasks.new(name: "Champ 7280",
     dev_start_at: Date.parse("2015-11-02"),
     dev_complete_at: Date.parse("2015-11-18"),
@@ -232,7 +234,7 @@ Issue.create(jira_id: 7280, nickname: "Calc payment", deploy_at: Date.parse("201
   )
 end
 
-Issue.create(nickname: "Ngale opti", deploy_at: Date.parse("2015-12-09")) do |issue|
+Issue.create(nickname: "Ngale opti", deploy_at: Date.parse("2015-12-09"), order: 8) do |issue|
   issue.subtasks.new(name: "Nightingale",
     dev_start_at: Date.parse("2015-11-02"),
     dev_complete_at: Date.parse("2015-11-13"),

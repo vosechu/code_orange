@@ -18,19 +18,19 @@
     </div>
     <div class="clearfix"></div>
   </div>
-  <% @issues.each_with_index do |issue, index| %>
+  <% @users.each_with_index do |user, index| %>
   <div class="storyline <%= index % 2 == 0 ? 'odd' : 'even' %>">
     <div class="infobit">
       <div class="metadata">
-        <h1 class="identifier"><a href="https://jira.renewfund.com/browse/<%= issue.jira_id %>"><%= issue.jira_id %></a></h1>
-        <p class="description"><%= issue.nickname %></p>
+        <h1 class="identifier"><%= user.name %></h1>
       </div>
       <div class="subtask-infobits">
-        <% issue.subtasks.each do |subtask| %>
+        <% user.subtasks.each do |subtask| %>
         <div class="subtask subtask-infobit">
+          <%= subtask.issue.jira_id %>
           <%= subtask.name %> -
-          <%= subtask.dev_owner ? subtask.dev_owner.name : '???' %> /
-          <%= subtask.cr_owner ? subtask.cr_owner.name : '???' %>
+          <%= 'Dev' if subtask.dev_owner == user %>
+          <%= 'CR' if subtask.cr_owner == user %>
         </div>
         <% end %>
       </div>
@@ -38,7 +38,7 @@
     </div>
     <div class="subtasks-container">
       <div class="subtasks">
-        <% issue.subtasks.each do |subtask| %>
+        <% user.subtasks.each do |subtask| %>
         <div class="subtask">
           <% subtask = SubtaskStorylineDecorator.new(subtask) %>
           <div class="section dev offset-day-<%= subtask.dev_offset %> width-<%= subtask.dev_width %>">Dev</div>
@@ -59,7 +59,7 @@
     <div class="clearfix"></div>
   </div>
   <% end %>
-<!--   <div class="storyline new-storyline <%= @issues.count % 2 == 0 ? 'odd' : 'even' %> omega">
+<!--   <div class="storyline new-storyline <%= @users.count % 2 == 0 ? 'odd' : 'even' %> omega">
     <div class="infobit">
       <%= simple_form_for :issue do |f| %>
         <%= f.input :jira_id, placeholder: 'Jira ID', label: false %>
