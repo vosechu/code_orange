@@ -41,12 +41,13 @@
         <% issue.subtasks.each do |subtask| %>
         <div class="subtask">
           <% subtask = SubtaskStorylineDecorator.new(subtask) %>
-          <div class="section dev offset-day-<%= subtask.dev_offset %> width-<%= subtask.dev_width %>">Dev</div>
-          <div class="section review offset-day-<%= subtask.review_offset %> width-<%= subtask.review_width %>">Rev</div>
+          <div class="section dev offset-day-<%= subtask.dev_offset %> width-<%= subtask.dev_width %>"><%= subtask.dev_owner.name %></div>
+          <div class="section review offset-day-<%= subtask.review_offset %> width-<%= subtask.review_width %>"><%= subtask.cr_owner ? subtask.cr_owner.name : '???' %></div>
           <div class="section rc offset-day-<%= subtask.rc_offset %> width-<%= subtask.rc_width %>">RC</div>
 
           <div class="section holiday offset-day-31 width-4">Tday</div>
           <div class="section holiday offset-day-17 width-1">V</div>
+          <div class="section highlight offset-day-<%= Date.today.cwday - 1 %> width-1">&nbsp;</div>
 
           <% @num_weeks.times do |week_index| %>
           <div class="section week offset-day-<%= week_index * 7 %> width-7">&nbsp;</div>

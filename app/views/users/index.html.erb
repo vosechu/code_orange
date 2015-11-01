@@ -42,10 +42,10 @@
         <div class="subtask">
           <% subtask = SubtaskStorylineDecorator.new(subtask) %>
           <% if user == subtask.dev_owner || user.is_a?(FakeUser) %>
-          <div class="section dev offset-day-<%= subtask.dev_offset %> width-<%= subtask.dev_width %>">Dev</div>
+          <div class="section dev offset-day-<%= subtask.dev_offset %> width-<%= subtask.dev_width %>"><%= subtask.issue.jira_id %> - <%= subtask.dev_owner.present? ? subtask.dev_owner.name : "???" %></div>
           <% end %>
           <% if user == subtask.dev_owner || user.is_a?(FakeUser) %>
-          <div class="section review offset-day-<%= subtask.review_offset %> width-<%= subtask.review_width %>"><%= subtask.cr_owner.present? ? subtask.cr_owner.name : "Rev" %></div>
+          <div class="section review offset-day-<%= subtask.review_offset %> width-<%= subtask.review_width %>"><%= subtask.cr_owner.present? ? subtask.cr_owner.name : "???" %></div>
           <% end %>
           <% if user == subtask.cr_owner %>
           <div class="section review offset-day-<%= subtask.review_offset %> width-<%= subtask.review_width %>"><%= subtask.issue.jira_id %></div>
