@@ -15,10 +15,12 @@
 class Issue < ActiveRecord::Base
   has_many :subtasks
 
-  # def sections_for_date(date)
-  #   Date.parse(date) if date.is_a? String
-  #   sections.select { |section| section.present_on_date?(date) }.map(&:name).join(' ')
-  # end
+  def sections_for_date(date)
+    Date.parse(date) if date.is_a? String
+
+    # subtasks.select { |subtask| subtask.present_on_date?(date) }.map(&:name).join(' ')
+    'dev'
+  end
 
   def assignees
     subtasks.map(&:users).flatten.compact.uniq.sort

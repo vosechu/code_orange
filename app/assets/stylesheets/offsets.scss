@@ -1,0 +1,196 @@
+.section {
+  &.offset-week-0  { left: 0*$week-width; }
+  &.offset-week-1  { left: 1*$week-width; }
+  &.offset-week-2  { left: 2*$week-width; }
+  &.offset-week-3  { left: 3*$week-width; }
+  &.offset-week-4  { left: 4*$week-width; }
+  &.offset-week-5  { left: 5*$week-width; }
+  &.offset-week-6  { left: 6*$week-width; }
+  &.offset-week-7  { left: 7*$week-width; }
+  &.offset-week-8  { left: 8*$week-width; }
+  &.offset-week-9  { left: 9*$week-width; }
+  &.offset-week-10 { left: 10*$week-width; }
+  &.offset-week-11 { left: 11*$week-width; }
+
+  &.offset-day-0   { left:  0*$cell-width; }
+  &.offset-day-1   { left:  1*$cell-width; }
+  &.offset-day-2   { left:  2*$cell-width; }
+  &.offset-day-3   { left:  3*$cell-width; }
+  &.offset-day-4   { left:  4*$cell-width; }
+  &.offset-day-5   { left:  5*$cell-width; }
+  &.offset-day-6   { left:  6*$cell-width; }
+  &.offset-day-7   { left:  7*$cell-width; }
+  &.offset-day-8   { left:  8*$cell-width; }
+  &.offset-day-9   { left:  9*$cell-width; }
+  &.offset-day-10  { left: 10*$cell-width; }
+  &.offset-day-11  { left: 11*$cell-width; }
+  &.offset-day-12  { left: 12*$cell-width; }
+  &.offset-day-13  { left: 13*$cell-width; }
+  &.offset-day-14  { left: 14*$cell-width; }
+  &.offset-day-15  { left: 15*$cell-width; }
+  &.offset-day-16  { left: 16*$cell-width; }
+  &.offset-day-17  { left: 17*$cell-width; }
+  &.offset-day-18  { left: 18*$cell-width; }
+  &.offset-day-19  { left: 19*$cell-width; }
+  &.offset-day-20  { left: 20*$cell-width; }
+  &.offset-day-21  { left: 21*$cell-width; }
+  &.offset-day-22  { left: 22*$cell-width; }
+  &.offset-day-23  { left: 23*$cell-width; }
+  &.offset-day-24  { left: 24*$cell-width; }
+  &.offset-day-25  { left: 25*$cell-width; }
+  &.offset-day-26  { left: 26*$cell-width; }
+  &.offset-day-27  { left: 27*$cell-width; }
+  &.offset-day-28  { left: 28*$cell-width; }
+  &.offset-day-29  { left: 29*$cell-width; }
+  &.offset-day-30  { left: 30*$cell-width; }
+  &.offset-day-31  { left: 31*$cell-width; }
+  &.offset-day-32  { left: 32*$cell-width; }
+  &.offset-day-33  { left: 33*$cell-width; }
+  &.offset-day-34  { left: 34*$cell-width; }
+  &.offset-day-35  { left: 35*$cell-width; }
+  &.offset-day-36  { left: 36*$cell-width; }
+  &.offset-day-37  { left: 37*$cell-width; }
+  &.offset-day-38  { left: 38*$cell-width; }
+  &.offset-day-39  { left: 39*$cell-width; }
+  &.offset-day-40  { left: 40*$cell-width; }
+  &.offset-day-41  { left: 41*$cell-width; }
+  &.offset-day-42  { left: 42*$cell-width; }
+  &.offset-day-43  { left: 43*$cell-width; }
+  &.offset-day-44  { left: 44*$cell-width; }
+  &.offset-day-45  { left: 45*$cell-width; }
+  &.offset-day-46  { left: 46*$cell-width; }
+  &.offset-day-47  { left: 47*$cell-width; }
+  &.offset-day-48  { left: 48*$cell-width; }
+  &.offset-day-49  { left: 49*$cell-width; }
+  &.offset-day-50  { left: 50*$cell-width; }
+  &.offset-day-51  { left: 51*$cell-width; }
+  &.offset-day-52  { left: 52*$cell-width; }
+  &.offset-day-53  { left: 53*$cell-width; }
+  &.offset-day-54  { left: 54*$cell-width; }
+  &.offset-day-55  { left: 55*$cell-width; }
+  &.offset-day-56  { left: 56*$cell-width; }
+  &.offset-day-57  { left: 57*$cell-width; }
+  &.offset-day-58  { left: 58*$cell-width; }
+  &.offset-day-59  { left: 59*$cell-width; }
+  &.offset-day-60  { left: 60*$cell-width; }
+  &.offset-day-61  { left: 61*$cell-width; }
+  &.offset-day-62  { left: 62*$cell-width; }
+  &.offset-day-63  { left: 63*$cell-width; }
+  &.offset-day-64  { left: 64*$cell-width; }
+  &.offset-day-65  { left: 65*$cell-width; }
+  &.offset-day-66  { left: 66*$cell-width; }
+  &.offset-day-67  { left: 67*$cell-width; }
+  &.offset-day-68  { left: 68*$cell-width; }
+  &.offset-day-69  { left: 69*$cell-width; }
+  &.offset-day-70  { left: 70*$cell-width; }
+  &.offset-day-71  { left: 71*$cell-width; }
+  &.offset-day-72  { left: 72*$cell-width; }
+  &.offset-day-73  { left: 73*$cell-width; }
+  &.offset-day-74  { left: 74*$cell-width; }
+  &.offset-day-75  { left: 75*$cell-width; }
+  &.offset-day-76  { left: 76*$cell-width; }
+  &.offset-day-77  { left: 77*$cell-width; }
+  &.offset-day-78  { left: 78*$cell-width; }
+  &.offset-day-79  { left: 79*$cell-width; }
+  &.offset-day-80  { left: 80*$cell-width; }
+  &.offset-day-81  { left: 81*$cell-width; }
+  &.offset-day-82  { left: 82*$cell-width; }
+  &.offset-day-83  { left: 83*$cell-width; }
+  &.offset-day-84  { left: 84*$cell-width; }
+  &.offset-day-85  { left: 85*$cell-width; }
+  &.offset-day-86  { left: 86*$cell-width; }
+  &.offset-day-87  { left: 87*$cell-width; }
+  &.offset-day-88  { left: 88*$cell-width; }
+  &.offset-day-89  { left: 89*$cell-width; }
+
+  &.width-0  { width: $cell-width *  0; }
+  &.width-1  { width: $cell-width *  1; }
+  &.width-2  { width: $cell-width *  2; }
+  &.width-3  { width: $cell-width *  3; }
+  &.width-4  { width: $cell-width *  4; }
+  &.width-5  { width: $cell-width *  5; }
+  &.width-6  { width: $cell-width *  6; }
+  &.width-7  { width: $cell-width *  7; }
+  &.width-8  { width: $cell-width *  8; }
+  &.width-9  { width: $cell-width *  9; }
+  &.width-10 { width: $cell-width * 10; }
+  &.width-11 { width: $cell-width * 11; }
+  &.width-12 { width: $cell-width * 12; }
+  &.width-13 { width: $cell-width * 13; }
+  &.width-14 { width: $cell-width * 14; }
+  &.width-15 { width: $cell-width * 15; }
+  &.width-16 { width: $cell-width * 16; }
+  &.width-17 { width: $cell-width * 17; }
+  &.width-18 { width: $cell-width * 18; }
+  &.width-19 { width: $cell-width * 19; }
+  &.width-20 { width: $cell-width * 20; }
+  &.width-21 { width: $cell-width * 21; }
+  &.width-22 { width: $cell-width * 22; }
+  &.width-23 { width: $cell-width * 23; }
+  &.width-24 { width: $cell-width * 24; }
+  &.width-25 { width: $cell-width * 25; }
+  &.width-26 { width: $cell-width * 26; }
+  &.width-27 { width: $cell-width * 27; }
+  &.width-28 { width: $cell-width * 28; }
+  &.width-29 { width: $cell-width * 29; }
+  &.width-30 { width: $cell-width * 30; }
+  &.width-31 { width: $cell-width * 31; }
+  &.width-32 { width: $cell-width * 32; }
+  &.width-33 { width: $cell-width * 33; }
+  &.width-34 { width: $cell-width * 34; }
+  &.width-35 { width: $cell-width * 35; }
+  &.width-36 { width: $cell-width * 36; }
+  &.width-37 { width: $cell-width * 37; }
+  &.width-38 { width: $cell-width * 38; }
+  &.width-39 { width: $cell-width * 39; }
+  &.width-40 { width: $cell-width * 40; }
+  &.width-41 { width: $cell-width * 41; }
+  &.width-42 { width: $cell-width * 42; }
+  &.width-43 { width: $cell-width * 43; }
+  &.width-44 { width: $cell-width * 44; }
+  &.width-45 { width: $cell-width * 45; }
+  &.width-46 { width: $cell-width * 46; }
+  &.width-47 { width: $cell-width * 47; }
+  &.width-48 { width: $cell-width * 48; }
+  &.width-49 { width: $cell-width * 49; }
+  &.width-50 { width: $cell-width * 50; }
+  &.width-51 { width: $cell-width * 51; }
+  &.width-52 { width: $cell-width * 52; }
+  &.width-53 { width: $cell-width * 53; }
+  &.width-54 { width: $cell-width * 54; }
+  &.width-55 { width: $cell-width * 55; }
+  &.width-56 { width: $cell-width * 56; }
+  &.width-57 { width: $cell-width * 57; }
+  &.width-58 { width: $cell-width * 58; }
+  &.width-59 { width: $cell-width * 59; }
+  &.width-60 { width: $cell-width * 60; }
+  &.width-61 { width: $cell-width * 61; }
+  &.width-62 { width: $cell-width * 62; }
+  &.width-63 { width: $cell-width * 63; }
+  &.width-64 { width: $cell-width * 64; }
+  &.width-65 { width: $cell-width * 65; }
+  &.width-66 { width: $cell-width * 66; }
+  &.width-67 { width: $cell-width * 67; }
+  &.width-68 { width: $cell-width * 68; }
+  &.width-69 { width: $cell-width * 69; }
+  &.width-70 { width: $cell-width * 70; }
+  &.width-71 { width: $cell-width * 71; }
+  &.width-72 { width: $cell-width * 72; }
+  &.width-73 { width: $cell-width * 73; }
+  &.width-74 { width: $cell-width * 74; }
+  &.width-75 { width: $cell-width * 75; }
+  &.width-76 { width: $cell-width * 76; }
+  &.width-77 { width: $cell-width * 77; }
+  &.width-78 { width: $cell-width * 78; }
+  &.width-79 { width: $cell-width * 79; }
+  &.width-80 { width: $cell-width * 80; }
+  &.width-81 { width: $cell-width * 81; }
+  &.width-82 { width: $cell-width * 82; }
+  &.width-83 { width: $cell-width * 83; }
+  &.width-84 { width: $cell-width * 84; }
+  &.width-85 { width: $cell-width * 85; }
+  &.width-86 { width: $cell-width * 86; }
+  &.width-87 { width: $cell-width * 87; }
+  &.width-88 { width: $cell-width * 88; }
+  &.width-89 { width: $cell-width * 89; }
+}

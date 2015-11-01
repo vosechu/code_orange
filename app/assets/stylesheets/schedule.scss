@@ -1,176 +1,258 @@
 @import "variables.scss";
-
-// General Layout
-
-.story-container {
-  overflow-x: scroll;
-}
-.story {
-  height: $cell-height;
-  width: $week-width * 12;
-  margin-left: $infobit-width;
-}
-.infobit {
-  background-color: white;
-  height: inherit;
-  width: $infobit-width;
-  float: left;
-  position: fixed;
-  margin-left: -$infobit-width;
-  padding: 5px;
-}
-.week {
-  float: left;
-  width: $week-width;
-  height: $cell-height;
-}
-.day {
-  width: $cell-width;
-  height: $cell-height;
-  float: left;
-  padding-top: 13px;
-}
-
-// Borders
-
-.story-container {
-  border: 1px solid $cell-border;
-}
-.story.omega {
-  & .day, & .infobit {
-    border-bottom: none;
-  }
-}
-.story .week.omega {
-  border-right: none;
-}
-.story-header {
-  border-bottom: 1px solid $cell-border;
-}
-.infobit {
-  border-right: 1px solid $cell-border;
-  border-bottom: 1px dashed $cell-border;
-}
-.week {
-  border-right: 1px solid $cell-border;
-}
-.day {
-  // border-right: 1px solid $cell-border;
-  border-bottom: 1px solid darken($stripe-even, 50%);
-}
-
-// Color specifics
+@import "offsets.scss";
 
 body {
   color: $text-color;
 }
-.story.even {
-  background-color: $stripe-even;
-
-  .day {
-    &.dev {
-      background-color: mix($dev, $stripe-even);
-    }
-    &.dev.weekend {
-      background-color: mix(mix($dev, $stripe-even), $weekend);
-    }
-    &.review {
-      background-color: mix($review, $stripe-even);
-    }
-    &.review.weekend {
-      background-color: mix(mix($review, $stripe-even), $weekend);
-    }
-    &.rc {
-      background-color: mix($rc, $stripe-even);
-    }
-    &.rc.weekend {
-      background-color: mix(mix($rc, $stripe-even), $weekend);
-    }
-  }
+html {
+  box-sizing: border-box;
 }
-.story.odd {
-  background-color: $stripe-odd;
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
-  .day {
-    &.dev {
-      background-color: mix($dev, $stripe-odd);
+// General Layout
+
+.storyline-container {
+  width: 100%;
+  overflow-x: scroll;
+
+  .storyline {
+    width: $infobit-width + ($week-width) * 12;
+    border-bottom: 1px solid $cell-border;
+
+    &.odd, &.even {
+      min-height: 70px;
     }
-    &.dev.weekend {
-      background-color: mix(mix($dev, $stripe-odd), $weekend);
+    &.omega {
+      border-bottom: none;
     }
-    &.review {
-      background-color: mix($review, $stripe-odd);
+    &.storyline-header .week {
+      height: 100%;
     }
-    &.review.weekend {
-          background-color: mix(mix($review, $stripe-odd), $weekend);
+    .infobit, .subtask-infobits, .subtasks {
+      float: left;
+      min-height: $cell-height - 8px;
+    }
+    .infobit {
+      position: fixed;
+      width: $infobit-width;
+      background-color: white;
+      border-right: 1px solid $cell-border;
+
+      h1 {
+        margin: 0;
+      }
+      .metadata, .subtask-infobits {
+        float: left;
+      }
+      .metadata {
+        padding-left: 5px;
+        width: $infobit-metadata-width;
+      }
+      .subtask-infobits {
+        width: $subtask-infobit-width;
+      }
+    }
+    .subtasks-container {
+      position: relative;
+      margin-left: $infobit-width;
+
+      .subtasks {
+        position: relative;
+        width: 100%;
+
+        .subtask {
+          height: $subtask-cell-height;
+          width: 100%;
+          border-bottom: 1px solid lighten($cell-border, 40);
         }
-    &.rc {
-      background-color: mix($rc, $stripe-odd);
-    }
-    &.rc.weekend {
-          background-color: mix(mix($rc, $stripe-odd), $weekend);
-        }
-  }
-}
-.day.weekend {
-  background-color: $weekend;
-}
-.btn {
-  background-color: lighten($cell-border, 35%);
-}
-.day.highlight {
-  background-color: $highlight;
-}
-
-// Header layout
-
-.story-header {
-  .day {
-    text-align: center;
-    line-height: $cell-height;
-  }
-  .week {
-    padding: 4px;
-  }
-}
-
-// Infobit layout
-
-.infobit {
-  .identifier {
-    font-size: 1.3em;
-    margin: 0 5px 3px 0;
-  }
-  .assignees {
-    float: right;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    vertical-align: baseline;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 1.1em;
-    font-weight: 500;
-
-    & li {
-      display: inline;
-    }
-    & li:after {
-      content: ',';
-    }
-    & li:last-child:after {
-      content: none;
+      }
     }
   }
-  .description {
-    clear: both;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 0.9em;
-    text-align: left;
+}
+.section {
+  box-sizing: border-box;
+  position: absolute;
+  font-size: 12px;
+  padding: 1px;
+
+  &.week {
+    padding: 0 5px;
+    z-index: -1;
+    border-right: 1px solid $cell-border;
+    background-color: transparent;
   }
-  .btn.new {
-    margin: 4px auto;
-    display: block;
+  &.dev {
+    z-index: -5;
+    background-color: $dev;
+  }
+  &.review {
+    z-index: -4;
+    background-color: $review;
+  }
+  &.rc {
+    z-index: -3;
+    background-color: $rc;
+  }
+  &.weekend {
+    z-index: -10;
+    background-color: $weekend;
+  }
+  &.holiday {
+    z-index: -2;
+    background-color: $holiday;
+    border: 2px solid white;
+    width: $cell-border - 2;
+    height: $subtask-cell-height - 2;
+  }
+  &.btn {
+    background-color: lighten($cell-border, 35%);
+  }
+  &.highlight {
+    z-index: -9;
+    background-color: $highlight;
   }
 }
+
+
+// // Borders
+
+// .story-container {
+//   border: 1px solid $cell-border;
+// }
+// .storyline {
+//   border-bottom: 1px solid $cell-border;
+
+//   .subtask-infobits {
+//     border-right: 1px solid $cell-border;
+//   }
+//   .story-header {
+//     border-bottom: 1px solid $cell-border;
+//   }
+//   .infobit {
+//     border-right: 1px solid $cell-border;
+//     border-bottom: 1px dashed $cell-border;
+//   }
+//   .subtask {
+//     border-bottom: 1px solid $cell-border;
+//   }
+//   &.week {
+//     border-right: 1px solid $cell-border;
+//   }
+//   .day {
+//     // border-right: 1px solid $cell-border;
+//   }
+
+//   &.omega {
+//     & .day, & .infobit {
+//       border-bottom: none;
+//     }
+//   }
+//   & &.week.omega {
+//     border-right: none;
+//   }
+// }
+
+// Color specifics
+
+
+// // Header layout
+
+// .story-header {
+//   .day {
+//     text-align: center;
+//     line-height: $cell-height;
+//   }
+//   .week {
+//     padding: 4px;
+//   }
+//   .subtask-infobits {
+//     height: $cell-height;
+//   }
+// }
+
+// // Infobit layout
+
+// .infobit {
+//   .identifier {
+//     font-size: 1.3em;
+//     margin: 0 5px 3px 0;
+//   }
+//   .assignees {
+//     float: right;
+//     list-style: none;
+//     margin: 0;
+//     padding: 0;
+//     vertical-align: baseline;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     font-size: 1.1em;
+//     font-weight: 500;
+
+//     & li {
+//       display: inline;
+//     }
+//     & li:after {
+//       content: ',';
+//     }
+//     & li:last-child:after {
+//       content: none;
+//     }
+//   }
+//   .description {
+//     clear: both;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     font-size: 0.9em;
+//     text-align: left;
+//   }
+//   .btn.new {
+//     margin: 4px auto;
+//     display: block;
+//   }
+// }
+
+// // Subtask layout
+
+// .subtask-infobit {
+// }
+
+// // Story Layout
+
+// .story-container {
+//   overflow-x: scroll;
+// }
+// .storyline {
+//   height: $cell-height;
+//   width: $week-width * 12 + 100px;
+//   margin-left: $infobit-width;
+
+//   .subtask-infobits {
+//     width: 100px;
+//     float: left;
+//   }
+//   .infobit {
+//     background-color: white;
+//     height: inherit;
+//     width: $infobit-width;
+//     float: left;
+//     position: fixed;
+//     margin-left: -$infobit-width;
+//     padding: 5px;
+//   }
+//   &.week {
+//     float: left;
+//     width: $week-width;
+//     height: 100%;
+//   }
+//   .day {
+//     width: $cell-width;
+//     height: 100%;
+//     float: left;
+//     padding-top: 13px;
+//   }
+//   .subtask {
+//     height: 20px;
+//   }
+// }

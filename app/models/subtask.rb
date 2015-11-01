@@ -26,10 +26,6 @@ class Subtask < ActiveRecord::Base
   belongs_to :qa_owner, class_name: "User"
   belongs_to :po_owner, class_name: "User"
 
-  # def present_on_date?(date)
-  #   date.between?(start_at, end_at)
-  # end
-
   def users
     [dev_owner, cr_owner, qa_owner, po_owner]
   end
